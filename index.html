@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Semakan kelayakan pinjaman peribadi dan perniagaan DV Easy Loan.">
   <title>DV Easy Loan | Pembiayaan ringkas dan telus</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=5">
+  <script src="script.js?v=5" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -19,22 +19,24 @@
         <div class="utility-actions">
           <label class="language">
             <span class="sr-only">Bahasa</span>
-            <select aria-label="Pilihan bahasa">
-              <option selected>BM</option>
-              <option>EN</option>
+            <select class="language-selector" aria-label="Pilihan bahasa">
+              <option value="bm" selected>BM</option>
+              <option value="en">EN</option>
+              <option value="zh">中文</option>
             </select>
           </label>
           <a class="text-link" href="#faq">Soalan Lazim</a>
-          <a class="text-link" href="#contact">Hubungi</a>
-          <a class="button button-small button-outline" href="#application">Borang Ringkas</a>
-          <a class="button button-small button-whatsapp js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Nama%3A%20___%2C%20Jumlah%20pinjaman%3A%20___%2C%20Lokasi%3A%20___" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-section="header">WhatsApp</a>
+          <a class="text-link" href="#application">Hubungi</a>
+          <a class="button button-small button-outline js-form-cta" href="#application" data-track="form_cta">Borang Ringkas</a>
+          <a class="button button-small button-whatsapp js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Boleh%20bantu%20saya%3F" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-track="whatsapp_click" data-section="hero">Semak Kelayakan di WhatsApp</a>
         </div>
         <div class="mobile-actions">
-          <a class="mobile-cta" href="#application">Borang</a>
-          <a class="mobile-cta whatsapp js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Nama%3A%20___%2C%20Jumlah%20pinjaman%3A%20___%2C%20Lokasi%3A%20___" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-section="header">WhatsApp</a>
-          <select aria-label="Pilihan bahasa">
-            <option selected>BM</option>
-            <option>EN</option>
+          <a class="mobile-cta js-form-cta" href="#application" data-track="form_cta">Borang</a>
+          <a class="mobile-cta whatsapp js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Boleh%20bantu%20saya%3F" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-track="whatsapp_click" data-section="hero">Semak Kelayakan di WhatsApp</a>
+          <select class="language-selector" aria-label="Pilihan bahasa">
+            <option value="bm" selected>BM</option>
+            <option value="en">EN</option>
+            <option value="zh">中文</option>
           </select>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" aria-label="Buka menu">
             <span></span><span></span><span></span>
@@ -48,7 +50,7 @@
         <a href="#faq"><span>Contoh Bayaran</span></a>
         <a href="#news"><span>Maklumat</span></a>
         <a href="#about"><span>Tentang Kami</span></a>
-        <a href="#contact"><span>Hubungi</span></a>
+        <a href="#application"><span>Hubungi</span></a>
       </div>
     </nav>
   </header>
@@ -61,13 +63,17 @@
             <div class="hero-copy">
               <p class="eyebrow">Pembiayaan yang jelas dan bertanggungjawab</p>
               <h1>SEMAKAN KELAYAKAN<br>PINJAMAN</h1>
-              <p class="hero-lead">Semakan kelayakan pinjaman yang ringkas, telus dan mudah.</p>
+              <p class="hero-lead">Semakan awal dibuat berdasarkan maklumat asas, dokumen sokongan dan kelulusan akhir. Tiada bayaran pendahuluan.</p>
               <div class="features">
                 <div><span class="feature-icon">01</span><strong>Permohonan mudah</strong><small>Proses ringkas</small></div>
-                <div><span class="feature-icon">02</span><strong>Respons pantas</strong><small>Melalui WhatsApp</small></div>
-                <div><span class="feature-icon">03</span><strong>Berlesen KPKT</strong><small>Maklumat telus</small></div>
+                <div><span class="feature-icon">02</span><strong>Respons melalui WhatsApp</strong><small>Nombor rasmi</small></div>
+                <div><span class="feature-icon">03</span><strong>Pemberi pinjam wang berlesen KPKT</strong><small>Maklumat telus</small></div>
               </div>
-              <a class="button button-whatsapp button-main js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Nama%3A%20___%2C%20Jumlah%20pinjaman%3A%20___%2C%20Lokasi%3A%20___" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-section="hero">Semak Kelayakan di WhatsApp</a>
+              <p class="official-number">Nombor rasmi: <strong>019-4844444</strong></p>
+              <div class="hero-actions">
+                <a class="button button-whatsapp button-main js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Boleh%20bantu%20saya%3F" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-track="whatsapp_click" data-section="hero">Semak Kelayakan di WhatsApp</a>
+                <a class="button button-outline js-form-cta" href="#application" data-track="form_cta">Borang Ringkas</a>
+              </div>
             </div>
             <div class="hero-graphic" aria-hidden="true">
               <div class="graphic-orbit orbit-one"></div>
@@ -87,7 +93,10 @@
               <h2>TIADA BAYARAN<br>PENDAHULUAN</h2>
               <p class="hero-lead">Tiada bayaran pendahuluan untuk semakan kelayakan.</p>
               <p class="slide-note">Semakan kelayakan hendaklah ringkas dan telus. Berurusan hanya dengan pasukan rasmi kami.</p>
-              <a class="button button-whatsapp button-main js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Nama%3A%20___%2C%20Jumlah%20pinjaman%3A%20___%2C%20Lokasi%3A%20___" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-section="hero">Semak Kelayakan di WhatsApp</a>
+              <div class="hero-actions">
+                <a class="button button-whatsapp button-main js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Boleh%20bantu%20saya%3F" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-track="whatsapp_click" data-section="hero">Semak Kelayakan di WhatsApp</a>
+                <a class="button button-outline js-form-cta" href="#application" data-track="form_cta">Borang Ringkas</a>
+              </div>
             </div>
             <div class="hero-graphic graphic-payment" aria-hidden="true">
               <div class="zero-ring">RM<strong>0</strong><span>pendahuluan</span></div>
@@ -102,7 +111,10 @@
               <h2>BERLESEN KPKT<br>SEMAKAN DOKUMEN</h2>
               <p class="hero-lead">Kelayakan tertakluk kepada penilaian dan dokumen sokongan.</p>
               <p class="official-number">Nombor rasmi: <strong>019-4844444</strong></p>
-              <a class="button button-whatsapp button-main js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Nama%3A%20___%2C%20Jumlah%20pinjaman%3A%20___%2C%20Lokasi%3A%20___" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-section="hero">Semak Kelayakan di WhatsApp</a>
+              <div class="hero-actions">
+                <a class="button button-whatsapp button-main js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Boleh%20bantu%20saya%3F" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-track="whatsapp_click" data-section="hero">Semak Kelayakan di WhatsApp</a>
+                <a class="button button-outline js-form-cta" href="#application" data-track="form_cta">Borang Ringkas</a>
+              </div>
             </div>
             <div class="hero-graphic graphic-safety" aria-hidden="true">
               <div class="shield"><span>✓</span></div>
@@ -148,19 +160,27 @@
             <a href="#application">Ketahui lanjut <span>→</span></a>
           </article>
         </div>
-        <div class="center"><a class="button button-whatsapp button-main js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Nama%3A%20___%2C%20Jumlah%20pinjaman%3A%20___%2C%20Lokasi%3A%20___" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-section="services">Semak Kelayakan di WhatsApp</a></div>
+        <div class="center"><a class="button button-whatsapp button-main js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Boleh%20bantu%20saya%3F" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-track="whatsapp_click" data-section="services">Semak Kelayakan di WhatsApp</a></div>
       </div>
     </section>
 
     <section class="information-band" id="news">
       <div class="container information-inner">
-        <div>
+        <div class="information-title">
           <p class="section-kicker">Maklumat penting</p>
           <h2>Pinjam secara bertanggungjawab.</h2>
         </div>
         <div class="information-action">
-          <p>Jangan pindahkan wang untuk semakan kelayakan. Sahkan setiap permintaan melalui nombor rasmi DV Easy Loan sebelum berkongsi maklumat peribadi.</p>
-          <a class="button button-whatsapp button-main js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Nama%3A%20___%2C%20Jumlah%20pinjaman%3A%20___%2C%20Lokasi%3A%20___" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-section="responsible">Semak Kelayakan di WhatsApp</a>
+          <div class="trust-statements">
+            <p><span>01</span>Jangan pindahkan wang untuk semakan kelayakan.</p>
+            <p><span>02</span>Sahkan nombor rasmi sebelum berkongsi maklumat.</p>
+          </div>
+          <div class="trust-credentials">
+            <p><strong>SSM</strong> 1422540-M</p>
+            <p><strong>Lesen KPKT</strong> WL9960/32/01-11/812833</p>
+            <p><strong>Permit iklan</strong> WP3766/18/01-7/111227</p>
+          </div>
+          <a class="button button-whatsapp button-main js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Boleh%20bantu%20saya%3F" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-track="whatsapp_click" data-section="trust">Semak Kelayakan di WhatsApp</a>
         </div>
       </div>
     </section>
@@ -232,6 +252,9 @@
             <p>Tempoh yang tersedia bergantung pada produk dan jumlah yang diluluskan. Pasukan kami akan menerangkan pilihan semasa penilaian.</p>
           </details>
         </div>
+        <div class="faq-conversion center">
+          <a class="button button-whatsapp button-main js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Boleh%20bantu%20saya%3F" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-track="whatsapp_click" data-section="faq">Semak Kelayakan di WhatsApp</a>
+        </div>
       </div>
     </section>
 
@@ -247,7 +270,7 @@
             <li>Maklumat anda dikendalikan dengan bertanggungjawab</li>
           </ul>
         </div>
-        <form class="application-form" action="#" method="post" data-conversion="form_submit">
+        <form class="application-form" action="#" method="post" data-endpoint="" data-conversion="form_submit" novalidate>
           <div class="field">
             <label for="name">Nama</label>
             <input id="name" name="name" type="text" autocomplete="name" required>
@@ -274,7 +297,7 @@
             <input id="location" name="location" type="text" autocomplete="address-level2" required>
           </div>
           <div class="field-wide">
-            <button class="button button-secondary" type="submit" data-conversion="form_submit">Hantar Borang Ringkas</button>
+            <button id="short-form-submit" class="button button-secondary js-form-submit" type="submit" data-conversion="form_submit" data-track="form_submit">Hantar Borang Ringkas</button>
             <p class="form-status" role="status" aria-live="polite"></p>
           </div>
         </form>
@@ -291,6 +314,7 @@
         </a>
         <p>No.11 Bawah, Jalan Besar,<br>Taman Acheh Maju, 31200<br>Sitiawan, Perak</p>
         <p><a href="tel:+60194844444">Telefon: 019-4844444</a></p>
+        <a class="footer-whatsapp js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Boleh%20bantu%20saya%3F" target="_blank" rel="noopener" data-conversion="whatsapp_click" data-track="whatsapp_click" data-section="footer">Semak Kelayakan di WhatsApp</a>
       </div>
       <div>
         <h2>Syarikat</h2>
@@ -319,7 +343,7 @@
     </div>
   </footer>
 
-  <a class="floating-whatsapp js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Nama%3A%20___%2C%20Jumlah%20pinjaman%3A%20___%2C%20Lokasi%3A%20___" target="_blank" rel="noopener" aria-label="Hubungi DV Easy Loan melalui WhatsApp" data-conversion="whatsapp_click" data-section="floating">
+  <a class="floating-whatsapp js-whatsapp" href="https://wa.me/60194844444?text=Hi%20DV%20Easy%20Loan%2C%20saya%20ingin%20semak%20kelayakan%20pinjaman.%20Boleh%20bantu%20saya%3F" target="_blank" rel="noopener" aria-label="Hubungi DV Easy Loan melalui WhatsApp" data-conversion="whatsapp_click" data-track="whatsapp_click" data-section="floating">
     <span class="wa-mark">W</span><span>WhatsApp Kami</span>
   </a>
 </body>
