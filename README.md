@@ -7,7 +7,23 @@ Static corporate landing page for DV Easy Loan Sdn Bhd.
 - `index.html` — page content and structure
 - `styles.css` — responsive styling
 - `script.js` — language switching, carousel, FAQ, validation, WhatsApp and tracking hooks
-- `reference/dv-logo.png` — DV Easy Loan logo
+- `assets/dv-logo.png` — production DV Easy Loan logo
+- `assets/hero/hero-eligibility-cat.webp` — WhatsApp eligibility hero image
+- `assets/hero/hero-zero-upfront-cat.webp` — no-upfront-payment hero image
+- `assets/hero/hero-document-review-cat.webp` — document-review hero image
+
+Each slide uses a full-width campaign image with a small HTML overlay:
+
+```html
+<a
+  class="campaign-banner"
+  href="https://wa.me/60194844444"
+>
+  <img src="assets/hero/hero-eligibility-cat.webp" alt="...">
+</a>
+```
+
+Hero images use contained sizing so the full composition remains visible on desktop and mobile.
 
 ## Run locally
 
@@ -28,6 +44,8 @@ Open `http://127.0.0.1:4173`.
 5. Set the output directory to `.` and deploy.
 
 The project uses relative asset paths and requires no build step.
+
+The `reference/` directory is excluded by `.vercelignore` and must not contain live-site assets.
 
 ## Form delivery
 
