@@ -362,7 +362,186 @@ const pageMetadata = {
 
 const originalTextNodes = new Map();
 const originalAttributes = new Map();
-let currentLanguage = "bm";
+const bmFromEnglish = Object.fromEntries(Object.entries(translations.en).map(([bm, en]) => [en, bm]));
+const zhFromEnglish = Object.fromEntries(
+  Object.entries(translations.en)
+    .filter(([bm]) => translations.zh?.[bm])
+    .map(([bm, en]) => [en, translations.zh[bm]])
+);
+
+translations.bm = {
+  ...bmFromEnglish,
+  "OFFICIAL WHATSAPP": "NOMBOR RASMI",
+  "KPKT LICENSED": "BERLESEN KPKT",
+  "LICENSED LENDER": "PEMBERI PINJAM BERLESEN",
+  "RESPONSIBLE REVIEW": "MAKLUMAT JELAS",
+  "Licensed Moneylender under KPKT": "Pemberi Pinjam Wang Berlesen KPKT",
+  "Loan Amount": "Jumlah Pinjaman",
+  "Monthly Instalment": "Ansuran Bulanan",
+  "Short Form": "Borang Ringkas",
+  "FAQs": "Soalan Lazim",
+  "Contact": "Hubungi",
+  "Form": "Borang",
+  "All rights reserved.": "Hak cipta terpelihara."
+};
+
+translations.zh = {
+  ...zhFromEnglish,
+  ...translations.zh,
+  "OFFICIAL WHATSAPP": "官方 WhatsApp",
+  "KPKT LICENSED": "KPKT 持牌",
+  "LICENSED LENDER": "持牌放贷机构",
+  "RESPONSIBLE REVIEW": "负责任审核",
+  "Licensed Moneylender under KPKT": "KPKT 持牌放贷机构",
+  "Short Form": "简短表格",
+  "FAQs": "常见问题",
+  "Contact": "联系我们",
+  "Form": "表格",
+  "All rights reserved.": "版权所有。"
+};
+
+
+Object.assign(translations.bm, {
+  "Start with a quick WhatsApp assessment. Our team will review your eligibility and supporting documents before the next step.": "Mulakan semakan ringkas melalui WhatsApp. Pasukan kami akan semak kelayakan dan dokumen sokongan sebelum langkah seterusnya.",
+  "LICENSED BY KPKT, DOCUMENT REVIEW": "BERLESEN KPKT, SEMAKAN DOKUMEN",
+  "12 months": "12 bulan",
+  "Frequently asked questions about personal loans": "Soalan lazim tentang pinjaman peribadi",
+  "This example is for reference only. Actual amounts are subject to assessment, supporting documents, approval and contract terms.": "Contoh ini untuk rujukan sahaja. Jumlah sebenar tertakluk kepada penilaian, dokumen sokongan, kelulusan dan terma kontrak.",
+  "The eligible amount depends on your income, current commitments and assessment results.": "Jumlah yang layak bergantung pada pendapatan, komitmen semasa dan keputusan penilaian anda.",
+  "The example on this page uses 18.0% per annum. Final terms will be disclosed before acceptance.": "Contoh pada halaman ini menggunakan 18.0% setahun. Terma akhir akan dinyatakan sebelum penerimaan.",
+  "Available tenure depends on the approved product and amount. Our team will explain the options during assessment.": "Tempoh yang tersedia bergantung pada produk dan jumlah yang diluluskan. Pasukan kami akan menerangkan pilihan semasa penilaian.",
+  "Estimated Amount (RM)": "Jumlah Anggaran (RM)",
+  "Licence validity:": "Tempoh sah lesen:",
+  "? 2026 DV Easy Loan Sdn Bhd. All rights reserved.": "? 2026 DV Easy Loan Sdn Bhd. Hak cipta terpelihara."
+});
+
+Object.assign(translations.zh, {
+  "Start with a quick WhatsApp assessment. Our team will review your eligibility and supporting documents before the next step.": "\u5148\u901a\u8fc7 WhatsApp \u8fdb\u884c\u7b80\u5355\u8bc4\u4f30\u3002\u6211\u4eec\u7684\u56e2\u961f\u5c06\u5728\u4e0b\u4e00\u6b65\u524d\u5ba1\u6838\u60a8\u7684\u8d44\u683c\u548c\u652f\u6301\u6587\u4ef6\u3002",
+  "LICENSED BY KPKT, DOCUMENT REVIEW": "KPKT \u6301\u724c\uff0c\u6587\u4ef6\u5ba1\u6838",
+  "12 months": "12 \u4e2a\u6708",
+  "Frequently asked questions about personal loans": "\u4e2a\u4eba\u8d37\u6b3e\u5e38\u89c1\u95ee\u9898",
+  "This example is for reference only. Actual amounts are subject to assessment, supporting documents, approval and contract terms.": "\u6b64\u793a\u4f8b\u4ec5\u4f9b\u53c2\u8003\u3002\u5b9e\u9645\u91d1\u989d\u987b\u89c6\u8bc4\u4f30\u3001\u652f\u6301\u6587\u4ef6\u3001\u6279\u51c6\u548c\u5408\u7ea6\u6761\u6b3e\u800c\u5b9a\u3002",
+  "The eligible amount depends on your income, current commitments and assessment results.": "\u53ef\u7533\u8bf7\u91d1\u989d\u53d6\u51b3\u4e8e\u6536\u5165\u3001\u73b0\u6709\u8d1f\u62c5\u548c\u8bc4\u4f30\u7ed3\u679c\u3002",
+  "The example on this page uses 18.0% per annum. Final terms will be disclosed before acceptance.": "\u672c\u9875\u793a\u4f8b\u4f7f\u7528\u5e74\u5229\u7387 18.0%\u3002\u6700\u7ec8\u6761\u6b3e\u5c06\u5728\u63a5\u53d7\u524d\u8bf4\u660e\u3002",
+  "Available tenure depends on the approved product and amount. Our team will explain the options during assessment.": "\u53ef\u7528\u671f\u9650\u53d6\u51b3\u4e8e\u83b7\u6279\u4ea7\u54c1\u548c\u91d1\u989d\u3002\u6211\u4eec\u7684\u56e2\u961f\u5c06\u5728\u8bc4\u4f30\u65f6\u8bf4\u660e\u9009\u9879\u3002",
+  "Estimated Amount (RM)": "\u9884\u8ba1\u91d1\u989d\uff08RM\uff09",
+  "Licence validity:": "\u6267\u7167\u6709\u6548\u671f\uff1a",
+  "? 2026 DV Easy Loan Sdn Bhd. All rights reserved.": "? 2026 DV Easy Loan Sdn Bhd. \u7248\u6743\u6240\u6709\u3002"
+});
+
+
+Object.assign(translations.zh, {
+  "Licensed Moneylender under KPKT": "KPKT ??????",
+  "Language": "??",
+  "FAQs": "????",
+  "Contact": "????",
+  "Short Form": "????",
+  "Form": "??",
+  "Check Eligibility on WhatsApp": "?? WhatsApp ????",
+  "Loans": "??",
+  "Repayment Example": "????",
+  "Information": "??",
+  "About Us": "????",
+  "CLEAR AND RESPONSIBLE FINANCING": "???????????",
+  "CHECK LOAN ELIGIBILITY": "??????",
+  "Start with a quick WhatsApp assessment. Our team will review your eligibility and supporting documents before the next step.": "??? WhatsApp ??????????????????????????????",
+  "QUICK CHECK": "????",
+  "OFFICIAL WHATSAPP": "?? WhatsApp",
+  "KPKT LICENSED": "KPKT ??",
+  "CLEAR FROM THE START": "????????",
+  "NO UPFRONT PAYMENT": "?????",
+  "No upfront payment is required for an eligibility check. Applications are subject to review and approval.": "?????????????????????",
+  "ELIGIBILITY FIRST": "????",
+  "NO ADVANCE FEE": "?????",
+  "CLEAR PROCESS": "????",
+  "DOCUMENTS REVIEWED CAREFULLY": "???????",
+  "LICENSED BY KPKT, DOCUMENT REVIEW": "KPKT ???????",
+  "Documents are reviewed before final approval.": "??????????????",
+  "DOCUMENT CHECK": "????",
+  "LICENSED LENDER": "??????",
+  "RESPONSIBLE REVIEW": "?????",
+  "Loan eligibility benefits": "??????",
+  "No upfront payment benefits": "??????",
+  "Document review benefits": "??????",
+  "LOAN OPTIONS": "????",
+  "Simple financing choices": "??????",
+  "Personal Loan": "????",
+  "For personal needs with a clear review process.": "??????????????",
+  "Learn more": "????",
+  "Business Loan": "????",
+  "For working capital and practical business needs.": "??????????????",
+  "Debt Consolidation": "????",
+  "Combine eligible commitments into a plan that is easier to understand.": "????????????????????",
+  "IMPORTANT INFORMATION": "????",
+  "Borrow responsibly.": "??????",
+  "Do not transfer money for an eligibility check.": "??????????",
+  "Verify the official number before sharing information.": "?????????????",
+  "KPKT LICENCE": "KPKT ??",
+  "ADVERTISING PERMIT": "????",
+  "REPAYMENT EXAMPLE": "????",
+  "Illustration for an RM3,000 loan over 12 months.": "RM3,000 ???12 ????????",
+  "Loan Amount": "????",
+  "Tenure": "??",
+  "12 months": "12 ??",
+  "Monthly Instalment": "????",
+  "View Repayment Schedule": "?????",
+  "Frequently asked questions about personal loans": "????????",
+  "View All FAQs": "????????",
+  "GENERAL ENQUIRIES": "????",
+  "If I borrow RM3,000, what is the repayment schedule?": "???? RM3,000??????????",
+  "Loan amount:": "?????",
+  "Tenure:": "???",
+  "Personal loan interest rate:": "???????",
+  "18.0% per annum": "??? 18.0%",
+  "Fees:": "???",
+  "RM15 stamp duty fee and RM10 attestation fee": "RM15 ????? RM10 ???",
+  "Principal Balance": "????",
+  "Principal Amount": "????",
+  "Interest Amount": "????",
+  "Disbursement": "??",
+  "Payment": "??",
+  "Final": "????",
+  "Total": "??",
+  "Swipe left to view the full schedule": "??????????",
+  "This example is for reference only. Actual amounts are subject to assessment, supporting documents, approval and contract terms.": "????????????????????????????????",
+  "How do I apply for a personal loan?": "?????????",
+  "Complete the short form below or contact our official WhatsApp number. Our team will explain the eligibility and document requirements.": "?????????????? WhatsApp ?????????????????????",
+  "How much can I apply for?": "??????????",
+  "The eligible amount depends on your income, current commitments and assessment results.": "?????????????????????",
+  "What documents and eligibility requirements are needed?": "????????????",
+  "Requirements vary by application. Identification, proof of income and recent supporting documents are generally required.": "??????????????????????????????",
+  "How do I contact DV Easy Loan for application information?": "???? DV Easy Loan ???????",
+  "Call or WhatsApp the official number 019-4844444 during business hours.": "????????? WhatsApp ???? 019-4844444?",
+  "What is the personal loan interest rate?": "??????????",
+  "The example on this page uses 18.0% per annum. Final terms will be disclosed before acceptance.": "????????? 18.0%?????????????",
+  "What are the minimum and maximum loan tenures?": "??????????????",
+  "Available tenure depends on the approved product and amount. Our team will explain the options during assessment.": "??????????????????????????????",
+  "START YOUR ENQUIRY": "????",
+  "If you prefer a form, complete the brief details below. For the fastest response, contact us through WhatsApp.": "????????????????????????????? WhatsApp ?????",
+  "Name": "??",
+  "Phone Number": "????",
+  "Loan Type": "????",
+  "Select a loan type": "??????",
+  "Estimated Amount (RM)": "?????RM?",
+  "Location": "??",
+  "Submit Short Form": "??????",
+  "Phone: 019-4844444": "???019-4844444",
+  "Company": "??",
+  "Loan Options": "????",
+  "Legal": "??",
+  "Privacy Notice": "????",
+  "Terms of Use": "????",
+  "Responsible Borrowing": "?????",
+  "Compliance": "????",
+  "Licence number: WL9960/32/01-11/812833": "?????WL9960/32/01-11/812833",
+  "Licence validity:": "??????",
+  "Advertising permit no.": "???????",
+  "? 2026 DV Easy Loan Sdn Bhd. All rights reserved.": "? 2026 DV Easy Loan Sdn Bhd. ?????",
+  "Borrow only what you can afford to repay.": "?????????????",
+  "WhatsApp Us": "WhatsApp ????"
+});
+
+let currentLanguage = "en";
 
 function collectTranslatableContent() {
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
@@ -383,11 +562,11 @@ function collectTranslatableContent() {
   });
 }
 
-function translatedText(bmText, language) {
-  if (language === "bm") return bmText;
-  const rowMatch = bmText.match(/^Bayaran (\d+)$/);
-  if (rowMatch) return language === "en" ? `Payment ${rowMatch[1]}` : `第 ${rowMatch[1]} 期`;
-  return translations[language]?.[bmText] ?? bmText;
+function translatedText(sourceText, language) {
+  if (language === "en") return sourceText;
+  const rowMatch = sourceText.match(/^Payment (\d+)$/);
+  if (rowMatch) return language === "bm" ? `Bayaran ${rowMatch[1]}` : `\u7b2c ${rowMatch[1]} \u671f`;
+  return translations[language]?.[sourceText] ?? sourceText;
 }
 
 function applyLanguage(language) {
@@ -400,38 +579,40 @@ function applyLanguage(language) {
   });
 
   const attributeTranslations = {
-    en: {
-      "Laman utama DV Easy Loan": "DV Easy Loan home",
-      "Pilihan bahasa": "Language selector",
-      "Buka menu": "Open menu",
-      "Navigasi utama": "Main navigation",
-      "Maklumat utama": "Featured information",
-      "Pilih slaid utama": "Select hero slide",
-      "Tunjukkan slaid 1": "Show slide 1",
-      "Tunjukkan slaid 2": "Show slide 2",
-      "Tunjukkan slaid 3": "Show slide 3",
-      "Jadual bayaran balik, leret secara mendatar pada skrin kecil": "Repayment schedule, scroll horizontally on small screens",
-      "Ringkasan contoh bayaran": "Repayment example summary",
-      "Hubungi DV Easy Loan melalui WhatsApp": "Contact DV Easy Loan through WhatsApp"
+    bm: {
+      "DV Easy Loan home": "Laman utama DV Easy Loan",
+      "Language selector": "Pilihan bahasa",
+      "Open menu": "Buka menu",
+      "Close menu": "Tutup menu",
+      "Main navigation": "Navigasi utama",
+      "Featured information": "Maklumat utama",
+      "Select hero slide": "Pilih slaid utama",
+      "Show slide 1": "Tunjukkan slaid 1",
+      "Show slide 2": "Tunjukkan slaid 2",
+      "Show slide 3": "Tunjukkan slaid 3",
+      "Repayment schedule, scroll horizontally on small screens": "Jadual bayaran balik, leret secara mendatar pada skrin kecil",
+      "Repayment example summary": "Ringkasan contoh bayaran",
+      "Contact DV Easy Loan through WhatsApp": "Hubungi DV Easy Loan melalui WhatsApp"
     },
     zh: {
-      "Laman utama DV Easy Loan": "DV Easy Loan 首页",
-      "Pilihan bahasa": "语言选择",
-      "Buka menu": "打开菜单",
-      "Navigasi utama": "主导航",
-      "Maklumat utama": "主要资讯",
-      "Pilih slaid utama": "选择主横幅",
-      "Tunjukkan slaid 1": "显示横幅 1",
-      "Tunjukkan slaid 2": "显示横幅 2",
-      "Tunjukkan slaid 3": "显示横幅 3",
-      "Jadual bayaran balik, leret secara mendatar pada skrin kecil": "还款时间表，小屏幕可横向滚动",
-      "Ringkasan contoh bayaran": "还款示例摘要",
-      "Hubungi DV Easy Loan melalui WhatsApp": "通过 WhatsApp 联系 DV Easy Loan"
+      "DV Easy Loan home": "DV Easy Loan \u9996\u9875",
+      "Language selector": "\u8bed\u8a00\u9009\u62e9",
+      "Open menu": "\u6253\u5f00\u83dc\u5355",
+      "Close menu": "\u5173\u95ed\u83dc\u5355",
+      "Main navigation": "\u4e3b\u5bfc\u822a",
+      "Featured information": "\u4e3b\u8981\u8d44\u8baf",
+      "Select hero slide": "\u9009\u62e9\u4e3b\u6a2a\u5e45",
+      "Show slide 1": "\u663e\u793a\u6a2a\u5e45 1",
+      "Show slide 2": "\u663e\u793a\u6a2a\u5e45 2",
+      "Show slide 3": "\u663e\u793a\u6a2a\u5e45 3",
+      "Repayment schedule, scroll horizontally on small screens": "\u8fd8\u6b3e\u65f6\u95f4\u8868\uff0c\u5c0f\u5c4f\u5e55\u53ef\u6a2a\u5411\u6eda\u52a8",
+      "Repayment example summary": "\u8fd8\u6b3e\u793a\u4f8b\u6458\u8981",
+      "Contact DV Easy Loan through WhatsApp": "\u901a\u8fc7 WhatsApp \u8054\u7cfb DV Easy Loan"
     }
   };
 
   originalAttributes.forEach((bmValue, element) => {
-    element.setAttribute("aria-label", language === "bm" ? bmValue : (attributeTranslations[language]?.[bmValue] ?? bmValue));
+    element.setAttribute("aria-label", language === "en" ? bmValue : (attributeTranslations[language]?.[bmValue] ?? bmValue));
   });
 
   document.documentElement.lang = language === "zh" ? "zh-CN" : language === "en" ? "en" : "ms";
@@ -727,7 +908,8 @@ collectTranslatableContent();
 document.querySelectorAll(".language-selector").forEach((selector) => {
   selector.addEventListener("change", (event) => applyLanguage(event.target.value));
 });
-applyLanguage("bm");
+const savedLanguage = localStorage.getItem("dv-language");
+applyLanguage(["bm", "en", "zh"].includes(savedLanguage) ? savedLanguage : "en");
 
 showSlide(0);
 startCarousel();
